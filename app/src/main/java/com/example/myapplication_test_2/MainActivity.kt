@@ -13,10 +13,17 @@ class MainActivity : AppCompatActivity() {
     private val questions = arrayOf(
         "What is the result of 20 + 77?",
         "What is the result of 77 - 20?",
-        "What is the result of 15 * 6?"
+        "What is the result of 15 * 6?",
+        "What is the result of 80 / 4?",
+        "What is the result of 45 + 63?",
+        "What is the result of 102 - 57?",
+        "What is the result of 25 * 3?",
+        "What is the result of 90 / 3?",
+        "What is the result of 35 + 82?",
+        "What is the result of 144 - 72?"
     )
 
-    private val correctAnswers = arrayOf("97", "57", "90")
+    private val correctAnswers = arrayOf("97", "57", "90", "20", "108", "45", "75", "30", "117", "72"s)
 
     private val userAnswers = arrayOfNulls<String>(questions.size)
 

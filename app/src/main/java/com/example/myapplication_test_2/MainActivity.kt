@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,15 +16,11 @@ class MainActivity : AppCompatActivity() {
         "What is the result of 77 - 20?",
         "What is the result of 15 * 6?",
         "What is the result of 80 / 4?",
-        "What is the result of 45 + 63?",
-        "What is the result of 102 - 57?",
-        "What is the result of 25 * 3?",
-        "What is the result of 90 / 3?",
-        "What is the result of 35 + 82?",
-        "What is the result of 144 - 72?"
+        "What is the result of 45 + 63?"
+
     )
 
-    private val correctAnswers = arrayOf("97", "57", "90", "20", "108", "45", "75", "30", "117", "72"s)
+    private val correctAnswers = arrayOf("97", "57", "90", "20", "108")
 
     private val userAnswers = arrayOfNulls<String>(questions.size)
 
@@ -75,14 +72,21 @@ class MainActivity : AppCompatActivity() {
 
     fun submitAnswer(view: View) {
         val userAnswer = answerEditText.text.toString().trim()
-        userAnswers[currentQuestionIndex] = userAnswer
-        currentQuestionIndex++
-        if (currentQuestionIndex >= questions.size) {
-            displayQuestion()
+        if (userAnswer.isEmpty()) {
+            // If the answer field is empty, show a message or perform any action you desire
+            // For example, you can display a Toast message
+            Toast.makeText(this, "Please enter an answer", Toast.LENGTH_SHORT).show()
         } else {
-            displayQuestion()
+            userAnswers[currentQuestionIndex] = userAnswer
+            currentQuestionIndex++
+            if (currentQuestionIndex >= questions.size) {
+                displayQuestion()
+            } else {
+                displayQuestion()
+            }
         }
     }
+
     // reset the answer
     private fun resetAnswer() {
         userAnswers[currentQuestionIndex] = null
